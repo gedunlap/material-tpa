@@ -17,7 +17,7 @@ router.get("/", (req, res) => {
 
 // Signup
 router.get('/auth/signup', (req, res) => {
-    res.send('signup get')
+    res.render('auth/signup')
   })
   
   router.post('/auth/signup', (req, res) => {
@@ -32,7 +32,7 @@ router.get('/auth/signup', (req, res) => {
   router.post('/auth/login', (req, res) => {
     res.send('login post')
   })
-  
+
  // Logout 
   router.get('/auth/logout', (req, res) => {
     res.send('logout get')
