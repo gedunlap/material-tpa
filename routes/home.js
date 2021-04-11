@@ -45,7 +45,7 @@ router.post('/auth/login', async (req, res) => {
             const checkpassword = await bcrypt.compare(req.body.password, user.password) //check if password matches
             if (checkpassword) { //if password matches
                 req.session.userId = user._id //create logged in session id
-                res.redirect('/') //redirect home
+                res.redirect('/appointments') //redirect home
             } else {
                 res.json({error: 'PASSWORD DOES NOT MATCH'})
             }
@@ -59,7 +59,8 @@ router.post('/auth/login', async (req, res) => {
 
 // Logout 
 router.get('/auth/logout', (req, res) => {
-    res.send('logout get')
+    req.session.userId = null
+    res.redirect('/')
 })
   
 ///////////////////////////////
