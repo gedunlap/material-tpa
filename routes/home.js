@@ -3,7 +3,7 @@
 ////////////////////////////////
 const router = require("express").Router()
 const bcrypt = require('bcrypt')
-const Client = require('../models/User')
+const Client = require('../models/Client')
 
 ///////////////////////////////
 // Router Specific Middleware
@@ -41,13 +41,13 @@ router.get('/auth/login', (req, res) => {
 router.post('/auth/login', async (req, res) => {
     try {
         const client = await Client.findOne({username: req.body.username}) //check if client account exists
-        if (user) { //if account exists
-            const checkpassword = await bcrypt.compare(req.body.password, user.password) //check if password matches
+        if (client) { //if account exists
+            const checkpassword = await bcrypt.compare(req.body.password, client.password) //check if password matches
             if (checkpassword) { //if password matches
-                req.session.userId = user._id //create logged in session id
+                req.session.userId = client._id //create logged in session id
                 res.redirect('/appointments') //redirect home
             } else {
-                res.json({error: 'PASSWORD DOES NOT MATCH'})
+                res.json({error: 'INCORRECT PASSWORD'})
             }
         } else {
             res.json({error: "CLIENT ACCOUNT DOES NOT EXIST"})
