@@ -25,7 +25,7 @@ router.get('/auth/signup', (req, res) => {
 router.post('/auth/signup', async (req, res) => {
     try {
         const salt = await bcrypt.genSalt(10); //make the salt
-        req.body.password = await bcrypt.hash(req.body.password, salt); //use the salt on the user password
+        req.body.password = await bcrypt.hash(req.body.password, salt); //hashbrown, use the salt on the user password
         await Client.create(req.body) //make the user account
         res.redirect('/auth/login') //go to login page
     } catch (error) {
@@ -38,8 +38,23 @@ router.get('/auth/login', (req, res) => {
     res.render('auth/login')
 })
 
-router.post('/auth/login', (req, res) => {
-    res.send('login post')
+router.post('/auth/login', async (req, res) => {
+    try {
+        const client = await Client.findOne({username: req.body.username}) //check if client account exists
+        if (user) { //if account exists
+            const checkpassword = await bcrypt.compare(req.body.password, user.password) //check if password matches
+            if (checkpassword) { //if password matches
+                req.session.userId = user._id //create logged in session id
+                res.redirect('/') //redirect home
+            } else {
+                res.json({error: 'PASSWORD DOES NOT MATCH'})
+            }
+        } else {
+            res.json({error: "CLIENT ACCOUNT DOES NOT EXIST"})
+        }
+    } catch (error) {
+        res.json(error)
+    }
 })
 
 // Logout 
