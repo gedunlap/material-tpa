@@ -85,6 +85,10 @@ router.get('/auth/logout', (req, res) => {
 })
 
 // Render Appointments if Authorized
+router.get('/appointments', isAuthorized, async (req, res) => {
+    const client = await Client.findOne({username: req.client.username})
+    res.render('appointments')
+})
 
   
 ///////////////////////////////
