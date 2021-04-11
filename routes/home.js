@@ -9,6 +9,27 @@ const Client = require('../models/Client')
 // Router Specific Middleware
 ////////////////////////////////
 
+// checks login by looking for userId in sessions to creat req.user
+const addClientToRequest = async (req, res, next) => {
+    if (req.session.userId) {
+        req.user = await Client.findById(req.session.userId)
+        next()
+    } else {
+        next()
+    }
+}
+
+// check if user is authorized to access route
+const isAuthorized = (req, res, next) => {
+    if (req.user) {
+        next()
+    } else {
+        res.redirect('/auth/login')
+    }
+}
+
+router.use(addClientToRequest)
+
 ///////////////////////////////
 // Router Routes
 ////////////////////////////////
@@ -62,6 +83,9 @@ router.get('/auth/logout', (req, res) => {
     req.session.userId = null
     res.redirect('/')
 })
+
+// Render Appointments if Authorized
+
   
 ///////////////////////////////
 // Export Router
