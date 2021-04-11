@@ -35,7 +35,7 @@ router.post('/auth/signup', async (req, res) => {
 
 // Login
 router.get('/auth/login', (req, res) => {
-    res.send('login get')
+    res.render('auth/login')
 })
 
 router.post('/auth/login', (req, res) => {
