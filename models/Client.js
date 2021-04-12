@@ -3,9 +3,9 @@ const {Schema, model} = require('../db/connection.js')
 
 // Appointment Schema
 const Apmt = new Schema ({
-    name: String,
-    date: String,
-    process: String
+    name: {type: String, required: true},
+    date: {type: String, format: "date", required: true},
+    type: {type: String, required: true}
 })
 
 // Client Schema
