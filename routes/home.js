@@ -112,9 +112,9 @@ router.put('/appointments/:id', isAuthorized, async (req, res) => {
 })
 
 // Create
-router.post('/appointments', isAuthorized, async (req, res) => {
+router.post('/appointments/', isAuthorized, async (req, res) => {
     const client = await Client.findOne({username: req.client.username})
-    res.render('create appointments')
+    res.send(req.body)
 })
 
 // Edit
