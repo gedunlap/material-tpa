@@ -84,13 +84,52 @@ router.get('/auth/logout', (req, res) => {
     res.redirect('/')
 })
 
+
+// Index
 // Render Appointments if Authorized
 router.get('/appointments', isAuthorized, async (req, res) => {
     const client = await Client.findOne({username: req.client.username})
     res.render('appointments')
 })
 
-  
+// New
+router.get('/appointments/new', isAuthorized, async (req, res) => {
+    const client = await Client.findOne({username: req.client.username})
+    res.send('new appointments')
+})
+
+
+// Destroy
+router.delete('/appointments/:id', isAuthorized, async (req, res) => {
+    const client = await Client.findOne({username: req.client.username})
+    res.send('delete appointments')
+})
+
+// Update
+router.put('/appointments/:id', isAuthorized, async (req, res) => {
+    const client = await Client.findOne({username: req.client.username})
+    res.send('update appointments')
+})
+
+// Create
+router.post('/appointments', isAuthorized, async (req, res) => {
+    const client = await Client.findOne({username: req.client.username})
+    res.render('create appointments')
+})
+
+// Edit
+router.get('/appointments/:id/edit', isAuthorized, async (req, res) => {
+    const client = await Client.findOne({username: req.client.username})
+    res.send('edit appointments')
+})
+
+// Show
+router.get('/appointments/:id', isAuthorized, async (req, res) => {
+    const client = await Client.findOne({username: req.client.username})
+    res.send('show appointments')
+})
+
+
 ///////////////////////////////
 // Export Router
 ////////////////////////////////
