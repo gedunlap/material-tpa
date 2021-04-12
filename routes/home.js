@@ -93,9 +93,9 @@ router.get('/appointments', isAuthorized, async (req, res) => {
 })
 
 // New
-router.get('/appointments/new', isAuthorized, async (req, res) => {
+router.get('/new', isAuthorized, async (req, res) => {
     const client = await Client.findOne({username: req.client.username})
-    res.send('new appointments')
+    res.render('new')
 })
 
 
