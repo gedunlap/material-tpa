@@ -104,13 +104,23 @@ router.get('/new', isAuthorized, async (req, res) => {
 // Destroy
 router.delete('/appointments/:id', isAuthorized, async (req, res) => {
     const user = await Client.findOne({username: req.user.username})
-    res.send('delete appointments')
+    apmts = req.params.id
+    Client.findByIdAndRemove(req.body)
+    await user.save()
+    res.redirect('/appointments')
 })
 
 // Update
 router.put('/appointments/:id', isAuthorized, async (req, res) => {
     const user = await Client.findOne({username: req.user.username})
-    res.send('update appointments')
+    const id = req.params.id
+    console.log(id)
+    const index = req.user.apmts.findIndex((apmt) => `${apmt._id}` === id)
+    console.log(index)
+    req.user.apmts[index] = req.body
+    console.log(req.user)
+    req.user.save()
+    res.redirect('/appointments')
 })
 
 // Create
@@ -124,7 +134,7 @@ router.post('/appointments', isAuthorized, async (req, res) => {
 // Edit
 router.get('/appointments/:id/edit', isAuthorized, async (req, res) => {
     const user = await Client.findOne({username: req.user.username})
-    res.send('edit appointments')
+    res.render('edit')
 })
 
 // Show
