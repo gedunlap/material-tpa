@@ -7,14 +7,11 @@
     <!-- THE HEADER TAG PARTIAL -->
     <%- include("partials/authheader") %>
     <main>
-        <h1>Appointments</h1>
+        <h1>Booked Appointments</h1>
         <% for (apmt of apmts) { %>
           <h2>
-            <%= apmt.name %>
-            <%= apmt.date %>
-            <%= apmt.type %>
+            <a href="/appointments/<%= apmt._id%>"><%= apmt.type %></a>
           </h2>
-          <a href="/appointments/:id">Info</a>
         <% } %>
         <br>
         <a href="/new" class="newbtn"><button>Make An Appointment</button></a>
