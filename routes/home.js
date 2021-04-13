@@ -9,6 +9,8 @@ const Client = require('../models/Client')
 // Router Specific Middleware
 ////////////////////////////////
 
+
+
 // checks login by looking for userId in sessions to creat req.user
 const addClientToRequest = async (req, res, next) => {
     if (req.session.userId) {
@@ -128,8 +130,15 @@ router.get('/appointments/:id/edit', isAuthorized, async (req, res) => {
 // Show
 router.get('/appointments/:id', isAuthorized, async (req, res) => {
     const user = await Client.findOne({username: req.user.username})
-    res.send('show appointments')
+    const id = req.params.id
+    const index = req.user.apmts.findIndex((apmt) => `${apmt._id}` === id)
+    const apmt = req.user.apmts[index]
+    res.render('show', {
+        apmt
+    })
 })
+
+
 
 
 ///////////////////////////////
