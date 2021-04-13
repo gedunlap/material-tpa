@@ -88,44 +88,46 @@ router.get('/auth/logout', (req, res) => {
 // Index
 // Render Appointments if Authorized
 router.get('/appointments', isAuthorized, async (req, res) => {
-    const client = await Client.findOne({username: req.client.username})
-    res.render('appointments')
+    const user = await Client.findOne({username: req.user.username})
+    res.render('appointments', {apmts: user.apmts})
 })
 
 // New
 router.get('/new', isAuthorized, async (req, res) => {
-    const client = await Client.findOne({username: req.client.username})
+    const user = await Client.findOne({username: req.user.username})
     res.render('new')
 })
 
 
 // Destroy
 router.delete('/appointments/:id', isAuthorized, async (req, res) => {
-    const client = await Client.findOne({username: req.client.username})
+    const user = await Client.findOne({username: req.user.username})
     res.send('delete appointments')
 })
 
 // Update
 router.put('/appointments/:id', isAuthorized, async (req, res) => {
-    const client = await Client.findOne({username: req.client.username})
+    const user = await Client.findOne({username: req.user.username})
     res.send('update appointments')
 })
 
 // Create
-router.post('/appointments/', isAuthorized, async (req, res) => {
-    const client = await Client.findOne({username: req.client.username})
-    res.send(req.body)
+router.post('/appointments', isAuthorized, async (req, res) => {
+    const user = await Client.findOne({username: req.user.username})
+    user.apmts.push(req.body)
+    await user.save()
+    res.redirect('/appointments')
 })
 
 // Edit
 router.get('/appointments/:id/edit', isAuthorized, async (req, res) => {
-    const client = await Client.findOne({username: req.client.username})
+    const user = await Client.findOne({username: req.user.username})
     res.send('edit appointments')
 })
 
 // Show
 router.get('/appointments/:id', isAuthorized, async (req, res) => {
-    const client = await Client.findOne({username: req.client.username})
+    const user = await Client.findOne({username: req.user.username})
     res.send('show appointments')
 })
 
