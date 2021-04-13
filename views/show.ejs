@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- THE HEAD TAG PARTIAL -->
+  <%- include("partials/head") %>
+
+  <body>
+    <!-- THE HEADER TAG PARTIAL -->
+    <%- include("partials/authheader") %>
+    <main>
+        <h1>Booked Appointments</h1>
+          <h2>
+            <%= apmt.type %>
+            <%= apmt.date %>
+          </h2>
+        <br>
+    </main>
+    <!-- THE HEAD TAG PARTIAL -->
+    <%- include("partials/footer") %>
+  </body>
+</html>
