@@ -20,7 +20,7 @@
             <%= apmt.date %>
             <!-- <%= apmt._id %> -->
           </h2>
-          To change appointment:
+          <!-- To change appointment:
             <form class="apmtform" action="/appointments/<%= apmt._id %>?_method=PUT" method="POST">
                 Name: <input type="text" name="name">
                 Date: <input type="date" name="date" id="" min="2021-01-01" max="2031-01-01">
@@ -33,7 +33,8 @@
                 </select>
                 <input type="submit" name="" value="Update">
             </form>
-            *All Fields Required
+            *All Fields Required -->
+            <a href="/appointments/<%= apmt._id %>/edit"><button>Change Appointment</button></a>
         <br>
     </main>
     <!-- THE HEAD TAG PARTIAL -->
