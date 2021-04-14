@@ -18,22 +18,7 @@
             on
             <br>
             <%= apmt.date %>
-            <!-- <%= apmt._id %> -->
           </h2>
-          <!-- To change appointment:
-            <form class="apmtform" action="/appointments/<%= apmt._id %>?_method=PUT" method="POST">
-                Name: <input type="text" name="name">
-                Date: <input type="date" name="date" id="" min="2021-01-01" max="2031-01-01">
-                <label for="type">Appointment Type: </label><select name="type" id="">
-                <option value="Consultation">Consultation</option>
-                <option value="Cut">Cut</option>
-                <option value="Color">Color</option>
-                <option value="Cut & Color">Cut & Color</option>
-                <option value="Blowout">Blowout</option>
-                </select>
-                <input type="submit" name="" value="Update">
-            </form>
-            *All Fields Required -->
             <a href="/appointments/<%= apmt._id %>/edit"><button>Change Appointment</button></a>
         <br>
     </main>
