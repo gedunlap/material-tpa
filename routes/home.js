@@ -134,7 +134,10 @@ router.post('/appointments', isAuthorized, async (req, res) => {
 // Edit
 router.get('/appointments/:id/edit', isAuthorized, async (req, res) => {
     const user = await Client.findOne({username: req.user.username})
-    res.render('edit')
+    const id = req.params.id
+    const index = req.user.apmts.findIndex((apmt) => `${apmt._id}` === id)
+    const apmt = req.user.apmts[index]
+    res.render('edit', {apmt})
 })
 
 // Show
@@ -143,9 +146,7 @@ router.get('/appointments/:id', isAuthorized, async (req, res) => {
     const id = req.params.id
     const index = req.user.apmts.findIndex((apmt) => `${apmt._id}` === id)
     const apmt = req.user.apmts[index]
-    res.render('show', {
-        apmt
-    })
+    res.render('show', {apmt})
 })
 
 
