@@ -104,9 +104,10 @@ router.get('/new', isAuthorized, async (req, res) => {
 // Destroy
 router.delete('/appointments/:id', isAuthorized, async (req, res) => {
     const user = await Client.findOne({username: req.user.username})
-    apmts = req.params.id
-    Client.findByIdAndRemove(req.body)
-    await user.save()
+    const id = req.params.id
+    const index = req.user.apmts.findIndex((apmt) => `${apmt._id}` === id)
+    req.user.apmts.splice(index, 1)
+    req.user.save()
     res.redirect('/appointments')
 })
 
@@ -114,11 +115,8 @@ router.delete('/appointments/:id', isAuthorized, async (req, res) => {
 router.put('/appointments/:id', isAuthorized, async (req, res) => {
     const user = await Client.findOne({username: req.user.username})
     const id = req.params.id
-    console.log(id)
     const index = req.user.apmts.findIndex((apmt) => `${apmt._id}` === id)
-    console.log(index)
     req.user.apmts[index] = req.body
-    console.log(req.user)
     req.user.save()
     res.redirect('/appointments')
 })
