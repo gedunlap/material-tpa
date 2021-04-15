@@ -1,0 +1,37 @@
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background: center fixed;
+    background-size: 100%;
+    background-image: url("https://i.imgur.com/bm6NXAr.jpg");
+    text-align: center;
+}
+
+header {
+    display: flex;
+    justify-content: space-around;
+    /* align-items: center; */
+    height: 60px;
+    background-color: whitesmoke;
+    border-bottom: solid black 5px;
+}
+
+.logo {
+    width: 500px;
+    height: 500px;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    border: solid black 5px;
+    border-radius: 250px;
+}
+
+footer {
+    height: 100px;
+    margin-top: 10px;
+    background-color: whitesmoke;
+}
+
+h1 {
+    margin-bottom: 10px;
+}
