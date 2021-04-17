@@ -8,18 +8,22 @@
         <!-- THE HEADER TAG PARTIAL -->
         <%- include("../partials/header") %>
         <main>
-
-            <h1>Create Account</h1>
+            <div class="card">
+                <div class="card-image is-centered">
+                    <img src="https://i.imgur.com/pT3Ilgr.png" alt="">
+                </div>
+            <h1 style="color: teal; font-weight: 900;">Create Account</h1><br>
             <form action="/auth/signup" method="POST">
-                <input type="text" placeholder="Username" name="username">
-                <input type="text" placeholder="Password" name="password">
-                <input type="text" placeholder="First Name" name="first">
-                <input type="text" placeholder="Last Name" name="last">
-                <p>* Optional for first time Guests</p>
-                <input type="text" placeholder="Natural Hair Color" name="color">
-                <input type="text" placeholder="Natural Hair Type" name="type">
-                <input type="submit" value="Sign Up!">
+                <input type="text" placeholder="Username" name="username"><br><br>
+                <input type="text" placeholder="Password" name="password"><br><br>
+                <input type="text" placeholder="First Name" name="first"><br><br>
+                <input type="text" placeholder="Last Name" name="last"><br><br>
+                <p style="font-weight: 600; color: teal;">* Optional for first time Guests</p><br>
+                <input type="text" placeholder="Natural Hair Color" name="color"><br><br>
+                <input type="text" placeholder="Natural Hair Type" name="type"><br><br>
+                <input type="submit" value="Sign Up!"><br>
             </form>
+            </div>
 
         </main>
         <!-- THE HEAD TAG PARTIAL -->
