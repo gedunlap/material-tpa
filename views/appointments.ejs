@@ -8,13 +8,15 @@
     <%- include("partials/authheader") %>
     <main>
         <h1>Booked Appointments</h1>
-        <% for (apmt of apmts) { %>
-          <h2>
-            <a href="/appointments/<%= apmt._id%>"><%= apmt.type %></a>
-          </h2>
-        <% } %>
+        <div class="apmts">
+          <% for (apmt of apmts) { %>
+            <h2>
+              <a href="/appointments/<%= apmt._id%>"><%= apmt.type %></a>
+            </h2>
+          <% } %>
+        </div>
         <br>
-        <a href="/new" class="newbtn"><button>Make An Appointment</button></a>
+        <a href="/new" class="newbtn"><button style="background-color: black; color: white;border: solid white 3px; border-radius: 5px; font-weight: 600; padding: 10px;">Make An Appointment</button></a>
     </main>
     <!-- THE HEAD TAG PARTIAL -->
     <%- include("partials/footer") %>
