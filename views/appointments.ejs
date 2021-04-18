@@ -13,14 +13,15 @@
             <div class="card" id="appcards">
 
               <h2 class="apmt-card">
-                <a href="/appointments/<%= apmt._id%>"><%= apmt.type %></a>
+                <span style="font-size: 30px; font-weight: 900;"><%= apmt.type %></span>
                 <br><br><%= apmt.date %>
+                <br><br><a href="/appointments/<%= apmt.id %>"><button style="background-color: teal; color: white; border: solid teal; margin-bottom: 20px; padding: 5px;">View / Change / Cancel</button></a>
               </h2>
             </div>
           <% } %>
         </div>
         <br><br>
-        <a href="/new" class="newbtn"><button style="background-color: black; color: white;border: solid white 3px; border-radius: 5px; font-weight: 600; padding: 10px;">Make An Appointment</button></a>
+        <a href="/new" class="newbtn"><button style="background-color: teal; color: white; border: solid teal; margin-bottom: 20px; padding: 10px;">Make An Appointment</button></a>
     </main>
     <!-- THE HEAD TAG PARTIAL -->
     <%- include("partials/footer") %>

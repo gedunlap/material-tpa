@@ -8,22 +8,26 @@
         <!-- THE HEADER TAG PARTIAL -->
         <%- include("partials/authheader") %>
         <main>
-            To change appointment:
-            
+            <h1 class="title is-1">To change appointment:</h1>
+            <div class="card" style="font-weight: 600; color: teal;">
+                <div class="card-image is-centered">
+                    <img src="https://i.imgur.com/pT3Ilgr.png" alt="">
+                </div>
             <form class="apmtform" action="/appointments/<%= apmt._id %>?_method=PUT" method="POST">
-                Name: <input type="text" name="name">
-                Date: <input type="date" name="date" id="" min="2021-01-01" max="2031-01-01">
+                Name: <input type="text" name="name"><br><br>
+                Date: <input type="date" name="date" id="" min="2021-01-01" max="2031-01-01"><br><br>
                 <label for="type">Appointment Type: </label><select name="type" id="">
                 <option value="Consultation">Consultation</option>
                 <option value="Cut">Cut</option>
                 <option value="Color">Color</option>
                 <option value="Cut & Color">Cut & Color</option>
                 <option value="Blowout">Blowout</option>
-                </select>
-                <input type="submit" name="" value="Update">
+                </select><br><br>
+                <input type="submit" name="" value="Update" style="background-color: teal; color: white; border: solid teal;">
             </form>
             
             *All Fields Required
+            </div>
         </main>
         <!-- THE HEAD TAG PARTIAL -->
         <%- include("partials/footer") %>

@@ -7,8 +7,8 @@
     <!-- THE HEADER TAG PARTIAL -->
     <%- include("partials/authheader") %>
     <main>
-        <h1>Booked Appointments</h1>
-          <h2>
+        <h1 class="title is-1">Booked Appointment</h1>
+          <h2 style="width: 50%; border-radius: 15px; background-color: rgb(0,0,0,0.6); color: white; text-align: center; font-size: 20px;font-weight: 600; padding: 20px 0;">
             <%= apmt.type %>
             <br>
             for
@@ -18,10 +18,11 @@
             on
             <br>
             <%= apmt.date %>
+            <br>
+            <br>
+            <a href="/appointments/<%= apmt._id %>/edit"><button style="background-color: teal; color: white; border: solid teal; margin-bottom: 20px; padding: 10px; font-weight: 600;">Change Appointment</button></a>
+            <form action="/appointments/<%= apmt._id %>?_method=DELETE" method="POST"><input type="submit" value="CANCEL Appointment" style="background-color: teal; font-weight: 600; color: white; border: solid teal; margin-bottom: 20px; padding: 10px;"></form>
           </h2>
-            <a href="/appointments/<%= apmt._id %>/edit"><button>Change Appointment</button></a>
-            <form action="/appointments/<%= apmt._id %>?_method=DELETE" method="POST"><input type="submit" value="CANCEL"></form>
-
         <br>
     </main>
     <!-- THE HEAD TAG PARTIAL -->
