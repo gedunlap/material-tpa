@@ -17,7 +17,7 @@ main {
 .title {
     font-family: "zen dots";
     text-align: center;
-    margin-top: 300px;
+    margin-top: 200px;
     width: 100%;
     color: black;
     background-color: rgb(128, 128, 128, 0.3);
@@ -71,11 +71,12 @@ main {
 
 .about {
     width: 50%;
-    background-color: rgb(255, 255, 255, 0.3);
+    background-color: rgba(12, 12, 12, 0.6);
     height: 100vh;
     margin: 100px;
     border-radius: 20px;
-    color: black;
+    color: white;
+    padding: 20px;
 }
 
 .card {
@@ -93,9 +94,11 @@ main {
 }
 
 #appcards {
-    background-color: rgb(187, 187, 187, 0.6);
+    background-color: rgba(12, 12, 12, 0.6);
     border-top: solid whitesmoke 3px;
     border-bottom: solid whitesmoke 3px;
+    color: white;
+    margin: 30px;
 }
 
 .apmt-card {
