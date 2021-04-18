@@ -84,6 +84,25 @@ main {
     padding: 20px;
 }
 
+#apmts {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 100%;
+    
+}
+
+#appcards {
+    background-color: rgb(187, 187, 187, 0.6);
+    border-top: solid whitesmoke 3px;
+    border-bottom: solid whitesmoke 3px;
+}
+
+.apmt-card {
+    width: 200px;
+    font-weight: 600;
+}
+
 .head {
     display: flex;
     align-items: center;
