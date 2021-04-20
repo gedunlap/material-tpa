@@ -6,7 +6,9 @@
 
 ## Project Summary
 
-This app is a basic building block of a site I would like to better for future use actual future use.
+This app is my first run at a Website for a Salon. It allows creation of a User Account in which to make, edit and cancel appointments specific to the user.
+
+This is a basic building block of a site I would like to better for actual future use.
 
 ## Technology Used
 
